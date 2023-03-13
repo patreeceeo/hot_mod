@@ -187,7 +187,7 @@ function startHmrClient(socket: WebSocket) {
   debug("listening for file changes...");
 }
 
-export function useClient(importMeta: ImportMeta) {
+export function useHmr(importMeta: ImportMeta) {
   if(!isHmrClientRunning) {
     // Seems like Deno cannot handle subprotocols
     // const socket = new WebSocket(socketURL, "esm-hmr");
