@@ -9,7 +9,7 @@ These modules are published at https://deno.land/x/hot_mod (despite what the Web
 In each client-side module:
 
 ```javascript
-import { useClient } from "hot_mod/client/mod.js";
+import { useClient } from "hot_mod/dist/client/mod.js";
 
 useClient(import.meta);
 ```
@@ -22,7 +22,7 @@ Then, in the dev server, import the HMR engine and wire it up:
 import { serve } from "http";
 import { relative } from "path";
 import { debounce } from "async";
-import { EsmHmrEngine } from "hot_mod/server/mod.ts";
+import { EsmHmrEngine } from "hot_mod/src/server/mod.ts";
 
 interface ModuleEventHandler {
   (paths: IterableIterator<string>): void;

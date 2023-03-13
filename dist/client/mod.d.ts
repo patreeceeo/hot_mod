@@ -2,7 +2,7 @@
  * A client-side implementation of the ESM-HMR spec, for real.
  * See https://github.com/FredKSchott/esm-hmr
  */
-/// <reference path="../../../src/modules/client/global.d.ts" />
+/// <reference path="../../src/client/global.d.ts" />
 type DisposeCallback = () => void;
 type AcceptCallback = (args: {
     module: any;
