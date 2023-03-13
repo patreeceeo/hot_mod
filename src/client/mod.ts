@@ -5,7 +5,7 @@
 
 declare global {
   interface ImportMeta {
-    hot?: HotModuleState
+    hot?: HotModuleState;
   }
 }
 
@@ -128,7 +128,7 @@ function installHotContext(importMeta: ImportMeta, socket: WebSocket) {
 }
 
 function reImport(moduleId: string, updateId: number) {
-  return import(`${location.host}${moduleId}?mtime=${updateId}`)
+  return import(`${location.host}${moduleId}?mtime=${updateId}`);
 }
 
 async function applyUpdate(id: string) {
@@ -158,7 +158,7 @@ async function applyUpdate(id: string) {
   return true;
 }
 
-let isHmrClientRunning = false
+let isHmrClientRunning = false;
 function startHmrClient(socket: WebSocket) {
   socket.addEventListener("open", () => {
     SOCKET_MESSAGE_QUEUE.forEach((msg) => _sendSocketMessage(socket, msg));
@@ -182,7 +182,7 @@ function startHmrClient(socket: WebSocket) {
     debug("message: update", data);
     debug(data.url, Object.keys(REGISTERED_MODULES));
     try {
-      const ok = await applyUpdate(data.url)
+      const ok = await applyUpdate(data.url);
       if (!ok) {
         reload();
       }
@@ -192,16 +192,16 @@ function startHmrClient(socket: WebSocket) {
     }
   });
 
-  isHmrClientRunning = true
+  isHmrClientRunning = true;
   debug("listening for file changes...");
 }
 
 export function useClient(importMeta: ImportMeta) {
-  if(!isHmrClientRunning) {
+  if (!isHmrClientRunning) {
     // Seems like Deno cannot handle subprotocols
     // const socket = new WebSocket(socketURL, "esm-hmr");
     const socket = new WebSocket(socketURL);
-    startHmrClient(socket)
-    installHotContext(importMeta, socket)
+    startHmrClient(socket);
+    installHotContext(importMeta, socket);
   }
 }
