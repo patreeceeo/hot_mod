@@ -1,3 +1,5 @@
+
+/// <reference path="./mod.d.ts" />
 /**
  * A client-side implementation of the ESM-HMR spec, for real.
  * See https://github.com/FredKSchott/esm-hmr
