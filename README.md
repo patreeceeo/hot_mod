@@ -4,7 +4,7 @@ An ESM-HMR client and server, allowing for hot-reloading client-side ESModules, 
 
 ## Usage with Deno
 
-These modules are published at https://deno.land/x/hot_mod.
+These modules are published at https://deno.land/x/hot_mod (despite what the Web page says, it's there)
 
 In each client-side module:
 
