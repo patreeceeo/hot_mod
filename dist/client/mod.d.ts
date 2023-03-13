@@ -2,7 +2,11 @@
  * A client-side implementation of the ESM-HMR spec, for real.
  * See https://github.com/FredKSchott/esm-hmr
  */
-/// <reference path="../../src/client/global.d.ts" />
+declare global {
+    interface ImportMeta {
+        hot?: HotModuleState;
+    }
+}
 type DisposeCallback = () => void;
 type AcceptCallback = (args: {
     module: any;
