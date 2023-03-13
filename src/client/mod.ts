@@ -127,6 +127,10 @@ function installHotContext(importMeta: ImportMeta, socket: WebSocket) {
   }
 }
 
+function reImport(moduleId: string, updateId: number) {
+  return import(`${location.host}${moduleId}?mtime=${updateId}`)
+}
+
 async function applyUpdate(id: string) {
   const state = REGISTERED_MODULES[id];
   if (!state) {
@@ -145,8 +149,8 @@ async function applyUpdate(id: string) {
   const updateID = Date.now();
   for (const { deps, callback: acceptCallback } of acceptCallbacks) {
     const [module, ...depModules] = await Promise.all([
-      import(id + `?mtime=${updateID}`),
-      ...deps.map((d) => import(d + `?mtime=${updateID}`)),
+      reImport(id, updateID),
+      ...deps.map((depId) => reImport(depId, updateID)),
     ]);
     acceptCallback({ module, deps: depModules });
   }
