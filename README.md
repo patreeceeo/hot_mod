@@ -9,9 +9,9 @@ These modules are published at https://deno.land/x/hot_mod (despite what the Web
 In each client-side module:
 
 ```javascript
-import { useHmr } from "hot_mod/client/mod.js";
+import { useClient } from "hot_mod/client/mod.js";
 
-useHmr(import.meta);
+useClient(import.meta);
 ```
 
 This will make `import.meta.hot` available in development (well, as long as serving from localhost. I mean to support some kind of configuration or environment variables for deciding when HMR should be enabled.)
