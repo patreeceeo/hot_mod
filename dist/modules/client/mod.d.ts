@@ -2,7 +2,7 @@
  * A client-side implementation of the ESM-HMR spec, for real.
  * See https://github.com/FredKSchott/esm-hmr
  */
-/// <reference path="./global.d.ts" />
+/// <reference path="../../../src/modules/client/global.d.ts" />
 type DisposeCallback = () => void;
 type AcceptCallback = (args: {
     module: any;
@@ -28,5 +28,5 @@ export declare class HotModuleState {
     decline(): void;
     accept(_deps: string[], callback?: true | AcceptCallback): void;
 }
-export declare function useHmr(importMeta: ImportMeta): void;
+export declare function useClient(importMeta: ImportMeta): void;
 export {};
