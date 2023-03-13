@@ -50,11 +50,11 @@ async function addModuleEventHandler(
   for await (const event of watcher) {
     if (event.kind === "modify") {
       for (const path of event.paths) {
-        const cwdRelativePath = relative(Deno.cwd(), path);
-        // TODO there's some confusing naming conventions going on in this code
-        // The names "id" and "url" are used to refer to the same things, and those
-        // things are actually path(name)s.
-        modifiedModuleUrls.add("/" + cwdRelativePath);
+        // These strings must correspond to those created on the client:
+        // The pathname to the full URL to the module subject to hot reloading,
+        // e.g. new URL(import.meta.url).pathname;
+        const moduleId = "/" + relative(Deno.cwd(), path);
+        modifiedModuleUrls.add(moduleId);
       }
     }
     if (modifiedModuleUrls.size > 0) {
