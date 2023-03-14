@@ -102,7 +102,7 @@ function installHotContext(importMeta, socket) {
     }
 }
 function reImport(moduleId, updateId) {
-    return import(`${location.href}${moduleId}?mtime=${updateId}`);
+    return import(`${location.origin}${moduleId}?mtime=${updateId}`);
 }
 async function applyUpdate(id) {
     const state = REGISTERED_MODULES[id];

@@ -128,7 +128,7 @@ function installHotContext(importMeta: ImportMeta, socket: WebSocket) {
 }
 
 function reImport(moduleId: string, updateId: number) {
-  return import(`${location.href}${moduleId}?mtime=${updateId}`);
+  return import(`${location.origin}${moduleId}?mtime=${updateId}`);
 }
 
 async function applyUpdate(id: string) {
