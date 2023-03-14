@@ -17,7 +17,7 @@ useClient(import.meta);
 
 // The following is just my best idea so far of how to write hot-reloadable modules :)
 export const hotExports = {
-  updateScreen, // example
+  // Add more identifiers here
   drawPlayers // example
 }
 if (import.meta.hot) {
@@ -27,7 +27,7 @@ if (import.meta.hot) {
     }
   });
 }
-// In app code, write hotExports.drawPlayers() instead of drawPlayers() etc
+// In app code, write hotExports.drawPlayers() instead of drawPlayers()
 ```
 
 This will make `import.meta.hot` available in development (well, as long as serving from localhost. I mean to support some kind of configuration or environment variables for deciding when HMR should be enabled.)
