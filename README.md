@@ -6,7 +6,7 @@ https://user-images.githubusercontent.com/578371/224897357-0119a373-5f50-4b46-b3
 
 
 
-An ESM-HMR client and server, allowing for hot-reloading client-side ESModules, as described by https://github.com/FredKSchott/esm-hmr.
+An ESM-HMR client and server, allowing for hot-reloading client-side (and maybe server-side? untested) ESModules, as described by https://github.com/FredKSchott/esm-hmr.
 
 ## Usage with Deno
 
