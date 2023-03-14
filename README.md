@@ -27,6 +27,7 @@ if (import.meta.hot) {
     }
   });
 }
+// In app code, write hotExports.drawPlayers() instead of drawPlayers() etc
 ```
 
 This will make `import.meta.hot` available in development (well, as long as serving from localhost. I mean to support some kind of configuration or environment variables for deciding when HMR should be enabled.)
