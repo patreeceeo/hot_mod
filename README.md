@@ -1,4 +1,4 @@
-# hot_deno
+# hot_mod
 
 An ESM-HMR client and server, allowing for hot-reloading client-side ESModules, as described by https://github.com/FredKSchott/esm-hmr.
 
