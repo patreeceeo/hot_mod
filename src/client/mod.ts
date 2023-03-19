@@ -41,11 +41,6 @@ function sendSocketMessage(socket: WebSocket, msg: any) {
   }
 }
 
-const socketURL =
-  // deno-lint-ignore no-explicit-any
-  (window as any).HMR_WEBSOCKET_URL ||
-  // TODO make common function
-  (location.protocol === "http:" ? "ws://" : "wss://") + location.host + "/";
 
 const REGISTERED_MODULES: { [key: string]: HotModuleState } = {};
 
@@ -196,11 +191,11 @@ function startHmrClient(socket: WebSocket) {
   debug("listening for file changes...");
 }
 
-export function useClient(importMeta: ImportMeta) {
+export function useClient(importMeta: ImportMeta, socketUrl: string) {
   if (!isHmrClientRunning) {
     // Seems like Deno cannot handle subprotocols
     // const socket = new WebSocket(socketURL, "esm-hmr");
-    const socket = new WebSocket(socketURL);
+    const socket = new WebSocket(socketUrl);
     startHmrClient(socket);
     installHotContext(importMeta, socket);
   }
